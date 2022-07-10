@@ -1,0 +1,84 @@
+html {
+background: black ;
+font-family: sans-serif ;
+}
+body {
+background: #222222 ;
+border: dotted #555555 ;
+color: #d8dee9 ;
+margin: auto ;
+max-width: 860px ;
+padding: 20px ;
+}
+h1, h2, h3, h4, h5, h6 {
+text-align: center ;
+}
+h2 {
+color: goldenrod ;
+}
+h3 {
+color: tomato ;
+}
+* a {
+color: turquoise ;
+text-decoration: none ;
+}
+figure {
+text-align: center ;
+}
+
+.backforth {
+animation: bf .5s linear both infinite alternate ;
+position: absolute ;
+}
+@keyframes bf {
+from {
+transform: translateX(.25em) ;
+}
+to {
+transform: translateX(0em) ;
+}
+}
+#tagcloud {
+padding: 0 ;
+background: #121212 ;
+border-radius: 10px ;
+text-align: center ;
+border: dashed 1px ;
+/* list-style: none ; */
+}
+#tagcloud li {
+display: inline-block ;
+}
+
+#tagcloud a {
+	display: block ;
+	width: auto ;
+	background: #323232 ;
+	border-radius: 10px ;
+	padding: .25em ;
+	margin: 2px ;
+}
+
+#tagcloud a:hover {
+	background: #222222 ;
+	box-shadow: 2px 2px black ;
+}
+#tag_guitar:before { content: "🎸" ; }
+
+#tag_crypto:before { content: "💰" ; }
+#tag_economics:before { content: "📈" ; }
+/* #tag_history:before { content: "" ; } */
+#tag_language:before { content: "🗣️" ; }
+#tag_lifestyle:before { content: "👪" ; }
+#tag_linux:before { content: "🐃" ; }
+#tag_personal:before { content: "😎" ; }
+#tag_philosophy:before { content: "🎓" ; }
+#tag_politics:before { content: "👑" ; }
+#tag_religion:before { content:"☦️" ; }
+#tag_science:before { content:"🥼" ; }
+#tag_software:before { content: "🖥️" ; }
+#tag_technology:before { content: "⚙️" ; }
+#tag_tradition:before { content: "📜" ; }
+#tag_tutorial:before { content: "📖" ; }
+#tag_updates:before { content: "🆕" ; }

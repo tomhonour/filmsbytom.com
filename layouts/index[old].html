@@ -1,0 +1,84 @@
+{{ partial "header.html" . }}
+
+<h1>Filmsbytom's Webpage</h1>
+
+<article>
+<figure>
+<img src="dog.jpeg" style="max-height: 200px" />
+</figure>
+<h2>Introduction</h2>
+<p>I am Filmsbytom and this is my webpage. There's a lot here, so thanks for stopping by!</p>
+<h3>On this webpage...</h3>
+<ul>
+<li><a href="/library/">📚 My Personal Library</a></li>
+<!--
+<li><a href="/programs/">🖥️ Programs I use and recommend</a></li>
+<li><a href="#donate">💸 Donate</a></li>
+-->
+<li><a href="/articles/">📜 Blog Articles and Other Writings</a></li>
+<!--
+<li><a href="/contact/">📧 Contact</a></li>
+-->
+</ul>
+</article>
+
+<article>
+<h2><a href="/articles/">📜 Writings on this site</a><span class=backforth>👈</span></h2>
+<h3>Or see them by topic:</h3>
+<ul id="tagcloud">
+<li><a href="/tags/guitar/">🎸 Guitar</a></li>
+<!--
+<li><a href="/tags/crypto/">💰 Crypto</a></li>
+<li><a href="/tags/economics/">📈 Economics</a></li>
+<li><a href="/tags/language/">🗣️ Language</a></li>
+<li><a href="/tags/lifestyle/">👪 Lifestyle</a></li>
+<li><a href="/tags/linux/">🐃 Linux</a></li>
+<li><a href="/tags/personal/">😎 Personal</a></li>
+<li><a href="/tags/philosophy/">🎓 Philosophy</a></li>
+<li><a href="/tags/politics/">👑 Politics</a></li>
+<li><a href="/tags/religion/">☦️ Religion</a></li>
+<li><a href="/tags/science/">🥼 Science</a></li>
+<li><a href="/tags/software/">🖥️ Software</a></li>
+<li><a href="/tags/technology/">⚙️ Technology</a></li>
+<li><a href="/tags/tradition/">📜 Tradition</a></li>
+<li><a href="/tags/tutorial/">📖 Tutorial</a></li>
+-->
+<li><a href="/updates/">🆕 Updates</a></li>
+</ul>
+<h3>Recent articles</h3>
+<ul>
+{{ range first 5 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+
+<li>
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006 Jan 02" }}</time> &ndash;
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+</li>
+
+{{ end }}
+</ul>
+<div style="text-align: center">
+<a href="/articles/">See more articles.</a>
+</div>
+</article>
+
+<article>
+<h2>Other sites of mine!</h2>
+<div style="text-align: center">
+<a href="/shop/">🛒 filmsbytom.com/shop/</a>
+</div>
+<!--
+<h3>Buttons</h3>
+-->
+</article>
+
+<!--
+<article>
+<h2>Keep up to date with RSS</h2>
+</article>
+
+<article>
+<h2 id="donate">Donate</h2>
+</article>
+-->
+
+{{ partial "footer.html" . }}

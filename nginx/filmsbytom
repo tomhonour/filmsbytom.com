@@ -1,0 +1,43 @@
+server {
+	server_name filmsbytom.com ;
+	root /var/www/filmsbytom ;
+	index index.html index.htm index.nginx-debian.html ;
+	location / {
+		try_files $uri $uri/ =404 ;
+	}
+	location /shop {
+		alias /var/www/shopfront ;
+	}
+	location /shopfiles {
+		alias /var/www/shopfiles ;
+		auth_basic "customer site" ;
+		auth_basic_user_file /var/www/stripe/.customers ;
+	}
+	location /webhook {
+		proxy_pass http://localhost:8000 ;
+#		limit_except POST {
+#			deny all ;
+#		}
+	}
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/filmsbytom.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/filmsbytom.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = filmsbytom.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+	listen 80 ;
+	listen [::]:80 ;
+	server_name filmsbytom.com ;
+    return 404; # managed by Certbot
+
+
+}

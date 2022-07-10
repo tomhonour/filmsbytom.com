@@ -1,0 +1,5 @@
+baseURL = 'https://filmsbytom.com'
+title = "filmsbytom"
+theme = "filmsbytom"
+[params]
+	mainSections = ['articles', 'updates']
